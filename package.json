@@ -1,0 +1,22 @@
+{
+  "name": "to-kv",
+  "version": "1.0.0",
+  "description": "converts array of objects to key-value structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdabir/to-kv.git"
+  },
+  "author": "kdabir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kdabir/to-kv/issues"
+  },
+  "homepage": "https://github.com/kdabir/to-kv#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
