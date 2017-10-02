@@ -14,7 +14,7 @@ const superheros = [
 ```
 
 It can be converted to following object: 
-```
+```javascript
 {
   'Superman': 'Metropolis',
   'Batman': 'Gotham',
@@ -24,7 +24,7 @@ It can be converted to following object:
 ```
 
 Using this snippet
-```
+```javascript
 const toKvConverter = require("to-kv");
 const convert = toKvConverter({keyName: 'name', valueName: 'city'});
 const result = convert(superheros);
@@ -33,7 +33,7 @@ const result = convert(superheros);
 There are three strategies to handle the case when multiple values are 
 found for the same key `keepFirst`, `keepLast` and `keepAll`. Example:
 
-```
+```javascript
 const convert = toKvConverter({onConflict: 'keepLast'});
 ```
 

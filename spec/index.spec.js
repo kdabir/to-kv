@@ -39,7 +39,6 @@ describe("on conflict strategy", () => {
 
 });
 
-
 describe('option to change key and value names', () => {
 
   const superheros = [
