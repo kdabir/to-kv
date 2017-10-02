@@ -2,6 +2,7 @@
 
 Converts Array of Objects to a simple Key-Value structure.
 
+[![Build Status](https://travis-ci.org/kdabir/to-kv.svg?branch=master)](https://travis-ci.org/kdabir/to-kv)
 
 For example, given the following array: 
 ```javascript
