@@ -4,7 +4,8 @@
   "description": "converts array of objects to key-value structure",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "cov": "jest --coverage",
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/kdabir/to-kv#readme",
   "devDependencies": {
+    "codecov": "^3.1.0",
     "jest": "^21.2.1"
   }
 }
