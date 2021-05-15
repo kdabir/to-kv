@@ -4,6 +4,7 @@
   "description": "converts array of objects to key-value structure",
   "main": "index.js",
   "type": "module",
+  "files": ["index.js"],
   "scripts": {
     "test": "jest",
     "cov": "jest --coverage"
