@@ -1,4 +1,4 @@
-module.exports = function (options) {
+export default function (options) {
   const defaults = {keyName: 'key', valueName: 'value', onConflict: 'keepLast'};
 
   const {keyName, valueName, onConflict} = Object.assign({}, defaults, options);
@@ -26,4 +26,4 @@ module.exports = function (options) {
   };
 
   return (arr) => arr.reduce(strategies[onConflict], {});
-};
+}

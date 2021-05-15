@@ -1,4 +1,4 @@
-const toKvConverter = require("../index")
+import toKvConverter from '../index';
 
 describe("on conflict strategy", () => {
 
@@ -41,10 +41,10 @@ describe("on conflict strategy", () => {
 describe("missing values", () => {
 
   const arrOfObjects = [
-    {key: 'tag', value: undefined, extra: 'info about a'},
-    {key: 'tag', value: 'stuff', extra: 'info about b'},
+    {key: 'tag',  value: undefined, extra: 'info about a'},
+    {key: 'tag',  value: 'stuff',  extra: 'info about b'},
     {key: 'from', value: 'sender', extra: 'info about sender'},
-    {key: 'from',                 extra: 'info about sender'},
+    {key: 'from',                  extra: 'info about sender'},
     {key: 'to', value: 'receiver', extra: 'info about receiver'},
     {key: 'to', value: null, extra: 'info about receiver'}
   ];
@@ -53,28 +53,33 @@ describe("missing values", () => {
     const convert = toKvConverter({onConflict: 'keepLast'});
     const obj = convert(arrOfObjects);
 
-    expect(obj).toEqual({tag: 'stuff', from: 'sender', to: null})
+    expect(obj).toEqual({
+      "tag": "stuff",
+      "to": null
+    })
   });
 
   it("should save first occurrence when using keepFirst strategy", () => {
     const convert = toKvConverter({onConflict: 'keepFirst'});
     const obj = convert(arrOfObjects);
 
-    expect(obj).toEqual({tag: 'cool', from: 'sender', to: 'receiver'})
+    expect(obj).toEqual({tag: 'stuff', from: 'sender', to: 'receiver'})
   });
 
   it("should save all occurrence when using keepAll strategy", () => {
     const convert = toKvConverter({onConflict: 'keepAll'});
     const obj = convert(arrOfObjects);
 
-    expect(obj).toEqual({tag: ['cool', 'stuff'], from: ['sender'], to: ['receiver']})
+    expect(obj).toEqual({tag: [undefined,'stuff'], from: ['sender', undefined], to: ['receiver', null]})
   });
 
+
+  // TODO improve this case
   it("should use keepLast as default strategy", () => {
     const convert = toKvConverter();
     const obj = convert(arrOfObjects);
 
-    expect(obj).toEqual({tag: 'stuff', from: 'sender', to: 'receiver'})
+    expect(obj).toEqual({tag: 'stuff', from:undefined, to: null})
   });
 
 });
